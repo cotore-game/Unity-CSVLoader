@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using IsogiYama.System;
+using UnityCSVLoader;
+using UnityCSVLoader.Fields;
 
 /// <summary>
 /// サンプル：CSV ローダーの使い方 / Sample: How to use CSV Loader

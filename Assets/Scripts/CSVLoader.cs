@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// CSVをListに格納
 /// </summary>
-namespace IsogiYama.System
+namespace UnityCSVLoader
 {
     public class CSVLoader
     {
@@ -79,17 +79,6 @@ namespace IsogiYama.System
 
             Debug.Log($"Loaded CsvData<{typeof(TEnum).Name}> ({result.Rows.Count} 行) for '{result.DataName}'");
             return result;
-        }
-
-
-        // 煩雑な仕様をまとめてファイルを渡せばよいだけにしたメソッド
-        public CsvData<ScenarioFields> ReadScenarioCSV(TextAsset file, string filename = default)
-        {
-            CsvData<ScenarioFields> scenarioData = new CsvData<ScenarioFields>();
-            scenarioData = LoadCSV<ScenarioFields>(file);
-            scenarioData.DataName = filename;
-
-            return scenarioData;
         }
 
         // 型変換を処理するヘルパーメソッド

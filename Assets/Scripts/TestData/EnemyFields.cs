@@ -1,9 +1,13 @@
 // 扱いたい CSV のヘッダーを定義します。
 // Define CSV headers you want to handle.
-public enum EnemyFields
+
+namespace UnityCSVLoader.Fields
 {
-    ID,
-    Name,
-    HP,
-    Attack
+    public enum EnemyFields
+    {
+        ID,
+        Name,
+        HP,
+        Attack
+    }
 }
