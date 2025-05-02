@@ -1,0 +1,5 @@
+Command,Arg1,Arg2,Arg3,Arg4,Arg5,Arg6,WaitType,Text,PageCtrl,Voice,WindowType,English
+ShowCharacter,Hero,Center,,,,,Fast,,,Normal,,
+PlaySound,BGM_Battle,,,,,,Normal,,Next,BattleTheme,,
+Dialogue,,,,,,Normal,,,Popup,Enemy is closing in!,,
+HideCharacter,Hero,,,,,,,Normal,,Next,,FadeOut
