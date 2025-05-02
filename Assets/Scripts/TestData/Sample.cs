@@ -13,15 +13,11 @@ public class Sample : MonoBehaviour
 
     private void Start()
     {
-        // インスタンス化してから使用してください。CSVLoader は static ではありません。
-        // Instantiate: CSVLoader is not static.
-        var csvLoader = new CSVLoader();
-
         // 1. ScenarioFields を使ってシナリオデータを読み込み
         //    第2引数は表示用のデータ名（省略可）
         // 1. Load scenario data using ScenarioFields
         //    Second argument sets data name for display (optional)
-        var scenarioData = csvLoader.LoadCSV<ScenarioFields>(scenarioCsv, "MainScenario");
+        var scenarioData = CSVLoader.LoadCSV<ScenarioFields>(scenarioCsv, "MainScenario");
         Debug.Log($"Scenario '{scenarioData.DataName}' loaded. Rows: {scenarioData.Rows.Count}");
 
         if (scenarioData.Rows.Count > 0)
@@ -36,7 +32,7 @@ public class Sample : MonoBehaviour
 
         // 2. EnemyFields を使って敵データを読み込み
         // 2. Load enemy data using EnemyFields
-        var enemyData = csvLoader.LoadCSV<EnemyFields>(enemyCsv, "EnemyStats");
+        var enemyData = CSVLoader.LoadCSV<EnemyFields>(enemyCsv, "EnemyStats");
         Debug.Log($"Enemy data '{enemyData.DataName}' loaded. Rows: {enemyData.Rows.Count}");
 
         // 各行をループしてフィールド値を取得

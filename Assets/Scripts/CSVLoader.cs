@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 namespace UnityCSVLoader
 {
-    public class CSVLoader
+    public static class CSVLoader
     {
 
         /// <summary>
@@ -17,7 +17,7 @@ namespace UnityCSVLoader
         /// <param name="csvFile">CSVファイル</param>
         /// <param name="dataName">データ名（省略時はファイル名）</param>
         /// <returns>読み込んだデータをまとめた CsvData&lt;TEnum&gt;</returns>
-        public CsvData<TEnum> LoadCSV<TEnum>(TextAsset csvFile, string dataName = default)
+        public static CsvData<TEnum> LoadCSV<TEnum>(TextAsset csvFile, string dataName = default)
             where TEnum : struct, Enum
         {
             var result = new CsvData<TEnum>();
@@ -82,7 +82,7 @@ namespace UnityCSVLoader
         }
 
         // 型変換を処理するヘルパーメソッド
-        private object ParseValue(string value)
+        private static object ParseValue(string value)
         {
             if (int.TryParse(value, out int intValue)) return intValue;
             if (float.TryParse(value, out float floatValue)) return floatValue;
