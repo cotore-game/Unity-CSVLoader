@@ -4,7 +4,6 @@
 
 A general-purpose CSV loader UnityPackage.  
 Uses enums as keys and provides type-safe access methods, making it easy to load scenario data, status tables, and more.  
-This package is released under CC0—feel free to modify and redistribute. I would be very happy if you credit **my name as the author**!
 
 ---
 
