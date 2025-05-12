@@ -4,24 +4,23 @@ using System;
 /// <summary>
 /// 任意の Enum をキーに、各セルの値を保持する汎用的な 1 行データ
 /// </summary>
-[Serializable]
-public class LineData<TEnum> where TEnum : struct, Enum
+public sealed class LineData<TEnum> where TEnum : struct, Enum
 {
-    // 実際の値を保持するディクショナリ
-    private Dictionary<TEnum, object> data = new Dictionary<TEnum, object>();
+    private readonly Dictionary<TEnum, object> _values = new();
 
-    // インデクサでのアクセス
     public object this[TEnum field]
     {
-        get => data.ContainsKey(field) ? data[field] : null;
-        set => data[field] = value;
+        get => _values.TryGetValue(field, out var val) ? val : null;
+        set => _values[field] = value;
     }
 
-    // 型安全に取得するためのジェネリックメソッド
-    public TValue Get<TValue>(TEnum field)
+    public T Get<T>(TEnum field)
     {
-        if (data.TryGetValue(field, out var val) && val is TValue t)
-            return t;
-        throw new InvalidCastException($"Field {field} cannot be cast to {typeof(TValue).Name}");
+        if (_values.TryGetValue(field, out var val))
+        {
+            if (val is T t) return t;
+            throw new InvalidCastException($"Field {field} is not of type {typeof(T)}");
+        }
+        throw new KeyNotFoundException($"Field {field} not found");
     }
 }
