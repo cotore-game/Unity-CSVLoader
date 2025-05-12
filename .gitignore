@@ -6,6 +6,7 @@
 [Ll]ogs/
 [Mm]emoryCaptures/
 Library/PackageCache/
+/*.meta
 
 # Crashlytics のビルドプロパティ
 crashlytics-build.properties
